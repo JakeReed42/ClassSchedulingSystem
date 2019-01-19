@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Course>
+@{
+    ViewData["Title"] = "Search Result";
+}
+
+<h2> Courses offered by Department</h2>
+
+<asp: DataSourceID="dsDepartmentID">
+
+
+</asp:>
+
+<table class="table">
+    <thead>
+        <tr>
+            <td>Course ID</td>
+            <td> Course Number</td>
+            <td>Course Name</td>
+            <td>Department Name</td>
+
+        </tr>
+
+    </thead>
+
+    <tbody>
+       
+        @foreach (Course eachCourse in Model)
+        {
+        <tr>
+            <td>@eachCourse.CourseID</td>
+            <td>@eachCourse.CourseNumber</td>
+            <td>@eachCourse.CourseName</td>
+            <td>@eachCourse.Department.DepartmentName</td>
+        </tr>
+        }
+
+        <tbody/>
+
+        </table>
+         

@@ -1,0 +1,54 @@
+﻿
+@*@{
+    ViewData["Title"] = "SearchCourseOfferings";
+}*@ 
+
+@model CourseOffering
+
+@using (
+    Html.BeginForm("SearchResult", "CourseOfferings", FormMethod.Post) @*Post nethod means that it sends to the controller *@
+)
+
+{
+    <h2>SearchCourseOfferings</h2>
+    <table class="table table-striped table-striped">
+
+        <tr>
+            <td>@Html.Label("Select Department (optional)")</td>
+            <td>@Html.DropDownList("DepartmentID", (SelectList)ViewBag.Departments, string.Empty)</td>
+        </tr>
+
+        <tr>
+            <td>@Html.Label("Start Time")</td>
+            <td>@Html.EditorFor(co => co.StartTime)</td>
+        </tr>
+
+        <tr>
+            <td>@Html.Label("End Time")</td>
+            <td>@Html.EditorFor(co => co.EndTime)</td>
+        </tr>
+
+        <tr>
+            <td>@Html.Label("Search Professor")</td>
+            <td>@Html.DropDownList("InstructorID", (SelectList)ViewBag.Instructors, string.Empty)</td>
+        </tr>
+
+
+        <tr>
+            <td>@Html.Label("Start Date")</td>
+            <td>@Html.EditorFor(co => co.StartDate)</td>
+        </tr>
+
+        <tr>
+            <td>@Html.Label("End Date")</td>
+            <td>@Html.EditorFor(co => co.EndDate)</td>
+        </tr>
+
+        <tr>
+            <td>
+                <input type="submit" class="btn btn-default" value="Search" />
+            </td>
+        </tr>
+    </table> 
+
+}

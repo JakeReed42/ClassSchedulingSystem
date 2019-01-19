@@ -1,0 +1,21 @@
+﻿@model Course
+@{
+    ViewData["Title"] = "Search For Courses";
+}
+
+@using (
+  // the "FormMethod.Post" means that its taking data and sending it to the database.
+  Html.BeginForm("FindCoursesByDepartment", "ManualCourse", FormMethod.Post)
+
+
+
+)
+{
+<h2>SearchForCourses</h2>
+
+@Html.Label("Select Department Name (Optional)")
+@Html.DropDownList("departmentID", (SelectList)ViewBag.Departments, string.Empty);
+
+<input type="submit" class="btn btn-default" value="Search" />
+}
+
